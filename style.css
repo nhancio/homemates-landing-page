@@ -1018,6 +1018,27 @@ body {
   outline: 2px solid transparent;
   outline-offset: 2px;
 }
+
+@media (min-width:1024px){
+  #c1{
+    transform-style:preserve-3d;
+    transform:rotateX(0deg) rotateY(0deg) translateZ(0);
+   width:142%
+ }
+ #c2{
+  transform-style:preserve-3d;
+    transform:rotateX(0deg) rotateY(0deg) translateZ(0);
+   margin-left: 25%;
+ }
+}
+@media (max-width:1024px) {
+  #c1{
+   width: 95%;
+  }
+  #c2{
+    margin-left: 0%;
+  }
+}
 @media (min-width: 640px) {
   .sm\:scale-75 {
     --tw-scale-x: 0.75;
@@ -1027,7 +1048,9 @@ body {
       scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   }
 }
+
 @media (min-width: 768px) {
+ 
   .md\:left-0 {
     left: 0;
   }
