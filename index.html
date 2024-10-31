@@ -55,10 +55,7 @@
       const formData = new FormData(document.getElementById("myForm"));
       const data = {};
       let confirmationMessage = document.getElementById('confirmationMessage');
-    //   formData.forEach((value, key) => {
-    //     data[key] = value;
-    //   });
-
+    
     let isValid = true; 
 
 
@@ -89,6 +86,7 @@ if (!isValid) {
       .then(response => {
         confirmationMessage.textContent = "Thanks for reaching us.We will get back to you shortly!";
         confirmationMessage.style.color = "#CCFBF1";
+        document.getElementById("myForm").reset();
       })
       .catch(error => {
         confirmationMessage.textContent = "There was an error: " + error;
@@ -2022,7 +2020,7 @@ if (!isValid) {
                 <button class="px-10 py-3 text-black rounded-md w-fit bg-gradient-to-r from-rose-100 to-teal-100 font-bold" style="padding: 8px 20px; font-size: 1rem; transition: background-color 0.3s ease, transform 0.2s ease;">Submit Request</button>
             </div>
             
-            <p id="confirmationMessage" class="mt-4 text-lg font-bold"></p>
+            <p id="confirmationMessage" class="mt-4 text-center text-lg font-bold"></p>
     
             <!-- Hover and Active Button Styles -->
             <style>
