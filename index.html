@@ -104,13 +104,26 @@ if (!isValid) {
     <a class="rounded-full p-2 md:px-4 text-neutral-50" href="https://homemates.nhancio.com/">Home</a>
     
     <!-- Nav will be hidden on small devices, visible on medium (md) and up -->
-    <nav class="hidden md:flex space-x-4 md:space-x-6 cursor-pointer">
-        <a class="text-slate-500 text-sm font-semibold leading-none" href="#features">Features</a>
-        <a class="text-slate-500 text-sm font-semibold leading-none" href="#contact">Contact Us</a>
+    <nav class="hidden md:flex items-center space-x-4 md:space-x-6 cursor-pointer">
+        <a class="text-slate-500 text-sm font-semibold leading-none hover:text-slate-300 transition-colors" href="#features">Features</a>
+        <a class="text-slate-500 text-sm font-semibold leading-none hover:text-slate-300 transition-colors" href="#rent-calculator">Rent Calculator</a>
+        <a class="text-slate-500 text-sm font-semibold leading-none hover:text-slate-300 transition-colors" href="#contact">Contact Us</a>
+        <a target="_blank"
+           class="cursor-pointer flex items-center justify-center transition-all duration-300 -mt-1"
+           href="https://chat.whatsapp.com/LjokqalMWPS8pwjYQQovC4"
+           title="Join our WhatsApp Community">
+            <svg xmlns="http://www.w3.org/2000/svg" 
+                 width="16" 
+                 height="16" 
+                 viewBox="0 0 24 24" 
+                 class="fill-[#25D366] hover:fill-[#128C7E] transition-colors duration-300">
+                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm.029 18.88c-1.161 0-2.305-.292-3.318-.844l-3.677.964.984-3.595c-.607-1.052-.927-2.246-.926-3.468.001-3.825 3.113-6.937 6.937-6.937 1.856.001 3.598.723 4.907 2.034 1.31 1.311 2.031 3.054 2.03 4.908-.001 3.825-3.113 6.938-6.937 6.938z"/>
+            </svg>
+        </a>
     </nav>
     
     <!-- Join WA Community button -->
-    <a target="_blank"
+    <!-- <a target="_blank"
        class="bg-white rounded-full cursor-pointer mx-1 sm:mx-2"
        href="https://chat.whatsapp.com/LjokqalMWPS8pwjYQQovC4"
        style="transition: background-color 0.3s ease; color: black;"
@@ -119,27 +132,10 @@ if (!isValid) {
         <div class="text-black text-sm font-bold font-inter leading-none py-2 px-4">
             Join WA Community
         </div>
-    </a>
+    </a> -->
     
 </div>
-            
 
-
-
-      
-
-
-
-
-
-
-        
-        
-       
-
-
-        
-        
         <div class="text-gray-300 mx-auto">
             <div
                 class="h-[100vh] lg:h-[150vh] md:max-h-[1000px] flex flex-col items-center justify-center md:justify-start"
@@ -403,7 +399,139 @@ if (!isValid) {
                 </div>
             </div>
         </div>
-
+        <!-- Add this after the features section -->
+        <div id="rent-calculator" class="w-full py-20 px-5">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-4xl lg:text-6xl text-center font-bold mb-12">
+                    <span style="background:linear-gradient(45deg, #EEDDBD, #F3B1A5, #EAA3EC, #E8D9E9);
+                                background-clip:text;
+                                -webkit-background-clip:text;
+                                -webkit-text-fill-color:transparent">
+                        Calculate your rent here
+                    </span>
+                </h2>
+        
+                <div class="bg-neutral-900 p-8 rounded-xl border border-neutral-800">
+                    <!-- Area Selection -->
+                    <div class="mb-8">
+                        <label class="block text-neutral-300 mb-2">Select Area</label>
+                        <select id="area" class="w-full bg-neutral-800 text-white rounded-md p-3 border border-neutral-700">
+                            <option value="madhapur">Madhapur, Hyderabad</option>
+                            <option value="hitech">Hitech City, Hyderabad</option>
+                            <option value="gachibowli">Gachibowli, Hyderabad</option>
+                            <option value="kondapur">Kondapur, Hyderabad</option>
+                            <option value="gowlidoddi">Gowlidoddi, Hyderabad</option>
+                            <option value="kokapet">Kokapet, Hyderabad</option>
+                            <option value="manikonda">Manikonda, Hyderabad</option>
+                        </select>
+                    </div>
+        
+                    <!-- Sharing and BHK Selection -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <!-- Sharing Selection -->
+                        <div>
+                            <label class="block text-neutral-300 mb-2">Select your sharing</label>
+                            <select id="sharing" class="w-full bg-neutral-800 text-white rounded-md p-3 border border-neutral-700">
+                                <option value="1">1 Person</option>
+                                <option value="2">2 People</option>
+                                <option value="3">3 People</option>
+                            </select>
+                        </div>
+        
+                        <!-- BHK Selection -->
+                        <div>
+                            <label class="block text-neutral-300 mb-2">Select BHK type</label>
+                            <select id="bhk" class="w-full bg-neutral-800 text-white rounded-md p-3 border border-neutral-700">
+                                <option value="1">1 BHK</option>
+                                <option value="2">2 BHK</option>
+                                <option value="3">3 BHK</option>
+                            </select>
+                        </div>
+                    </div>
+        
+                    <!-- Amenities Section -->
+                    <div class="space-y-4 mb-8">
+                        <h3 class="text-neutral-300 text-lg mb-4">Select your required amenities</h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <!-- Washing Machine Toggle -->
+                            <div class="flex items-center justify-between p-4 bg-neutral-800 rounded-lg">
+                                <span class="text-neutral-300">Washing Machine</span>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" id="washing-machine" class="sr-only peer">
+                                    <div class="w-11 h-6 bg-neutral-700 peer-focus:outline-none rounded-full peer 
+                                            peer-checked:after:translate-x-full peer-checked:bg-gradient-to-r 
+                                            from-rose-100 to-teal-100 peer-checked:border-2 peer-checked:border-white
+                                            after:content-[''] after:absolute after:top-[2px] after:left-[2px] 
+                                            after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all
+                                            peer-checked:after:bg-neutral-900">
+                                    </div>
+                                </label>
+                            </div>
+        
+                            <!-- Fridge Toggle -->
+                            <div class="flex items-center justify-between p-4 bg-neutral-800 rounded-lg">
+                                <span class="text-neutral-300">Fridge</span>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" id="fridge" class="sr-only peer">
+                                    <div class="w-11 h-6 bg-neutral-700 peer-focus:outline-none rounded-full peer 
+                                            peer-checked:after:translate-x-full peer-checked:bg-gradient-to-r 
+                                            from-rose-100 to-teal-100 peer-checked:border-2 peer-checked:border-white
+                                            after:content-[''] after:absolute after:top-[2px] after:left-[2px] 
+                                            after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all
+                                            peer-checked:after:bg-neutral-900">
+                                    </div>
+                                </label>
+                            </div>
+        
+                            <!-- AC Toggle -->
+                            <div class="flex items-center justify-between p-4 bg-neutral-800 rounded-lg">
+                                <span class="text-neutral-300">AC</span>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" id="ac" class="sr-only peer">
+                                    <div class="w-11 h-6 bg-neutral-700 peer-focus:outline-none rounded-full peer 
+                                            peer-checked:after:translate-x-full peer-checked:bg-gradient-to-r 
+                                            from-rose-100 to-teal-100 peer-checked:border-2 peer-checked:border-white
+                                            after:content-[''] after:absolute after:top-[2px] after:left-[2px] 
+                                            after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all
+                                            peer-checked:after:bg-neutral-900">
+                                    </div>
+                                </label>
+                            </div>
+        
+                            <!-- Bed + Mattress Toggle -->
+                            <div class="flex items-center justify-between p-4 bg-neutral-800 rounded-lg">
+                                <span class="text-neutral-300">Bed + Mattress</span>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" id="bed" class="sr-only peer">
+                                    <div class="w-11 h-6 bg-neutral-700 peer-focus:outline-none rounded-full peer 
+                                            peer-checked:after:translate-x-full peer-checked:bg-gradient-to-r 
+                                            from-rose-100 to-teal-100 peer-checked:border-2 peer-checked:border-white
+                                            after:content-[''] after:absolute after:top-[2px] after:left-[2px] 
+                                            after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all
+                                            peer-checked:after:bg-neutral-900">
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Calculate Button -->
+                    <div class="text-center mt-8">
+                        <button onclick="calculateRent()" 
+                                class="px-8 py-3 bg-gradient-to-r from-rose-100 to-teal-100 text-black font-bold rounded-full hover:opacity-90 transition-opacity">
+                            Calculate Now
+                        </button>
+                    </div>
+        
+                    <!-- Result Section -->
+                    <div id="result" class="mt-8 text-center hidden">
+                        <h3 class="text-2xl font-bold text-neutral-300 mb-2">Estimated Rent Range</h3>
+                        <p id="rent-estimate" class="text-xl text-neutral-300"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
 
@@ -602,9 +730,20 @@ if (!isValid) {
         <div class="text-white max-w-sm mx-auto md:mx-0">Don’t miss out! Join our exclusive WA Community now and be first in line to find your homemate.</div>
     </div>
     <div class="flex justify-center md:justify-start">
-        <a target="_blank" class="bg-white rounded-full cursor-pointer flex" href="https://chat.whatsapp.com/LjokqalMWPS8pwjYQQovC4">
-            <button class="px-5 py-2 text-black rounded-md bg-gradient-to-r from-rose-100 to-teal-100 font-semibold">Join WA Community</button>
-        </a>
+        <!-- Replace the existing WA Community button with this -->
+<!-- Replace both WhatsApp buttons (in nav and bottom section) with this -->
+            <a target="_blank"
+            class="cursor-pointer p-2 flex items-center justify-center transition-all duration-300"
+            href="https://chat.whatsapp.com/LjokqalMWPS8pwjYQQovC4"
+            title="Join our WhatsApp Community">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    width="35" 
+                    height="35" 
+                    viewBox="0 0 24 24" 
+                    class="fill-[#25D366] hover:fill-[#128C7E] transition-colors duration-300">
+                    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm.029 18.88c-1.161 0-2.305-.292-3.318-.844l-3.677.964.984-3.595c-.607-1.052-.927-2.246-.926-3.468.001-3.825 3.113-6.937 6.937-6.937 1.856.001 3.598.723 4.907 2.034 1.31 1.311 2.031 3.054 2.03 4.908-.001 3.825-3.113 6.938-6.937 6.938z"/>
+                </svg>
+            </a>
     </div>
 </div>
 
@@ -2151,6 +2290,70 @@ if (!isValid) {
                 style="position: absolute; border: 0px; height: 1px; margin: -1px; padding: 0px; width: 1px; clip: rect(0px, 0px, 0px, 0px); overflow: hidden; white-space: nowrap; overflow-wrap: normal;">
             </div>
         </template></next-route-announcer>
+        <script>
+            function calculateRent() {
+                // Get selected values
+                const sharing = parseInt(document.getElementById('sharing').value);
+                const bhk = parseInt(document.getElementById('bhk').value);
+                const area = document.getElementById('area').value;
+                const hasWashingMachine = document.getElementById('washing-machine').checked;
+                const hasFridge = document.getElementById('fridge').checked;
+                const hasAC = document.getElementById('ac').checked;
+                const hasBed = document.getElementById('bed').checked;
+            
+                // Base rent calculation based on BHK
+                let baseRent;
+                switch(bhk) {
+                    case 1:
+                        baseRent = 15000;
+                        break;
+                    case 2:
+                        baseRent = 25000;
+                        break;
+                    case 3:
+                        baseRent = 35000;
+                        break;
+                    default:
+                        baseRent = 15000;
+                }
+            
+                // Adjust for sharing
+                let perPersonRent = baseRent / sharing;
+            
+                // Add amenity costs
+                const amenitiesCost = (
+                    (hasWashingMachine ? 1000 : 0) +
+                    (hasFridge ? 1000 : 0) +
+                    (hasAC ? 2000 : 0) +
+                    (hasBed ? 1500 : 0)
+                ) / sharing;
+            
+                // Calculate initial rent
+                let calculatedRent = perPersonRent + amenitiesCost;
+            
+                // Apply area multiplier
+                const areaMultipliers = {
+                    'hitech': 1.1,
+                    'madhapur': 1.0,
+                    'gachibowli': 1.2,
+                    'kondapur': 1.1,
+                    'gowlidoddi': 1.0,
+                    'kokapet': 1.4,
+                    'manikonda': 1.1
+                };
+            
+                calculatedRent *= areaMultipliers[area];
+            
+                // Calculate final rent range
+                const minRent = Math.round(calculatedRent * 0.9);
+                const maxRent = Math.round(calculatedRent * 1.1);
+            
+                // Display result
+                const resultDiv = document.getElementById('result');
+                const estimateText = document.getElementById('rent-estimate');
+                resultDiv.classList.remove('hidden');
+                estimateText.textContent = `₹${minRent.toLocaleString()} - ₹${maxRent.toLocaleString()} per person/month`;
+            }
+            </script>
 </body>
-
 </html>
