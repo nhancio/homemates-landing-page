@@ -25,17 +25,20 @@
     <!-- <script src="./Meet Cardit_files/layout-fea966ce673360e0.js.download" async=""></script> -->
     <link rel="preload" href="./Meet Cardit_files/js" as="script">
     <meta name="description"
-        content="Homemates AI app">
+        content="Homemates app">
     <meta name="keywords"
-        content="Homemates AI app">
+        content="Homemates app">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="Homemates.ai">
+    <meta name="apple-mobile-web-app-title" content="Homemates">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="next-size-adjust">
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap"
         rel="stylesheet">
-        <title>Homemates.ai</title>
+        <title>Homemates</title>
         <link rel="icon" href="./images/logo.jpeg">
+
        
     <!-- <script src="https://cardit.in/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js" crossorigin=""
         nomodule=""></script>
@@ -51,17 +54,16 @@
       
       const formData = new FormData(document.getElementById("myForm"));
       const data = {};
-    //   formData.forEach((value, key) => {
-    //     data[key] = value;
-    //   });
-
+      let confirmationMessage = document.getElementById('confirmationMessage');
+    
     let isValid = true; 
 
 
 for (const [key, value] of formData.entries()) {
 
     if (key !== "companyName" && !value) {
-        alert(`${key} cannot be empty!`);
+        confirmationMessage.textContent = `${key} cannot be empty!`;
+        confirmationMessage.style.color = "red";
         isValid = false; 
         break; 
     }
@@ -81,33 +83,46 @@ if (!isValid) {
         },
         body: new URLSearchParams(data)
       })
-      .then(response => alert("Form submitted successfully!"))
-      .catch(error => alert("There was an error: " + error));
+      .then(response => {
+        confirmationMessage.textContent = "Thanks for reaching us.We will get back to you shortly!";
+        confirmationMessage.style.color = "#CCFBF1";
+        document.getElementById("myForm").reset();
+      })
+      .catch(error => {
+        confirmationMessage.textContent = "There was an error: " + error;
+        confirmationMessage.style.color = "red";
+      });
     }
   </script>
  <body id="home" class="mx-auto">
     <main class="flex flex-col min-h-screen items-center overflow-x-clip">
         <!-- <div
             class="bg-neutral-900 bg-opacity-95 backdrop-blur-sm w-[90%] md:w-auto gap-5 border border-neutral-700 rounded-full shadow p-2 pl-4 flex items-center justify-between sticky top-3 z-50"> -->
-            <div class="bg-neutral-900 bg-opacity-95 backdrop-blur-sm w-[80%] sm:w-[70%] md:w-[90%] lg:w-auto  gap-3 border border-neutral-700 rounded-full shadow p-2 sm:p-3 pl-3 sm:pl-4 flex items-center justify-between sticky top-3 z-50">
+            <div class="bg-neutral-900 bg-opacity-95 backdrop-blur-sm w-[80%] sm:w-[70%] md:w-[90%] lg:w-auto gap-3 border border-neutral-700 rounded-full shadow p-1 sm:p-2 pl-3 sm:pl-4 flex items-center justify-between sticky top-3 z-50">
 
-
-            <a class="rounded-full p-2 md:px-4 text-neutral-50 " href="https://homemates.nhancio.com/">Home</a>
-           
-            <nav class="md:flex hidden space-x-4 md:space-x-6 cursor-pointer ">
-                
-                <a
-                    class="text-slate-500 text-sm font-semibold leading-none"
-                    href="#features">Features</a>
-                    <a
-                    class="text-slate-500 text-sm font-semibold leading-none" href="#contact">Contact
-                    Us</a>
-                </nav>
-                <a target="_blank"
-                class="bg-white rounded-full cursor-pointer  md:flex mx-2" href="https://forms.gle/NVAXLAxQ9PhJWzfH8">
-                <div class="text-black text-sm font-bold font-inter leading-none py-2 px-4">Join Waitlist</div>
-            </a>
-        </div> 
+    <!-- Home link -->
+    <a class="rounded-full p-2 md:px-4 text-neutral-50" href="https://homemates.nhancio.com/">Home</a>
+    
+    <!-- Nav will be hidden on small devices, visible on medium (md) and up -->
+    <nav class="hidden md:flex space-x-4 md:space-x-6 cursor-pointer">
+        <a class="text-slate-500 text-sm font-semibold leading-none" href="#features">Features</a>
+        <a class="text-slate-500 text-sm font-semibold leading-none" href="#contact">Contact Us</a>
+    </nav>
+    
+    <!-- Join WA Community button -->
+    <a target="_blank"
+       class="bg-white rounded-full cursor-pointer mx-1 sm:mx-2"
+       href="https://chat.whatsapp.com/LjokqalMWPS8pwjYQQovC4"
+       style="transition: background-color 0.3s ease; color: black;"
+       onmouseover="this.style.backgroundColor='#f3f3f3'; this.style.color='#008080';"
+       onmouseout="this.style.backgroundColor='white'; this.style.color='black';">
+        <div class="text-black text-sm font-bold font-inter leading-none py-2 px-4">
+            Join WA Community
+        </div>
+    </a>
+    
+</div>
+            
 
 
 
@@ -134,11 +149,11 @@ if (!isValid) {
                     <div class=" text-5xl md:text-8xl lg:text-[100px] xl:text-[200px] font-extrabold leading-10 flex justify-center items-center tracking-tight"
                         style="background: linear-gradient(45deg, rgb(238, 221, 189), rgb(243, 177, 165), rgb(234, 163, 236), rgb(232, 217, 233)) text; -webkit-text-fill-color: transparent; opacity: 1; transform: none;
                         text-align: center;
-     font-size: 14vw;
+     font-size: 10vw;
      line-height: 1.1;">
-                        Homemates.ai</div>
+                        Homemates</div>
                         <!-- <div class="flex items-center">
-                            <img src="images/logo.jpeg" alt="Logo" class="h-20 md:h-20 lg:h-32"> 
+                            <img src="images/logo.jpeg" alt="Logo" class="h-10 md:h-10 lg:h-16"> 
                         </div> -->
                     <!-- <div class="text-5xl md:text-8xl lg:text-[150px] xl:text-[200px] font-extrabold leading-10 flex justify-center items-center tracking-tight"
                         style="background: linear-gradient(45deg, rgb(238, 221, 189), rgb(243, 177, 165), rgb(234, 163, 236), rgb(232, 217, 233)) text; -webkit-text-fill-color: transparent; opacity: 1; transform: none;">
@@ -237,7 +252,7 @@ if (!isValid) {
                 </div>
             </div>
             <div class="w-full text-gray-300 my-16">
-                <p class="text-center font-semibold text-lg text-gray-400 lg:w-[700px] xl:w-[900px] mx-auto ">Your Perfect Homemate is Just a Match Away – No Stress, No Wasted Time.</p>
+                <p class="text-center font-semibold text-lg text-gray-400 lg:w-[700px] xl:w-[900px] mx-auto ">Find Your Ideal Homemate – No Hassle, Just Perfect Matchmaking.</p>
                 <!-- <div class="mt-8">
                     <div class="grid grid-cols-4 gap-8 md:gap-0 lg:grid-cols-8 mt-[100px] px-5">
                         <div class="flex justify-center"><img alt="Logo 1" loading="lazy" width="100" height="100"
@@ -344,62 +359,55 @@ if (!isValid) {
             </div>
         </div> -->
 
+        
+
         <div id="features" class="grid z-50 grid-cols-1 md:grid-cols-2 gap-6 mt-10 lg:w-[1000px] 2xl:w-[1300px] mx-auto">
-    <!-- Card 1 -->
-    <div class="bg-neutral-900 mx-3 lg:mx-0 rounded-xl border border-neutral-800 flex flex-col justify-between h-full">
-        <img alt="illustration" loading="lazy" class="w-full h-64 object-cover rounded-t-xl" src="images/keep in touch.jpeg">
-        <div class="flex flex-col gap-3 items-center px-6 pb-6">
-            <div class="text-3xl font-bold text-neutral-300 text-center">Find your Homemate, not flatmate</div>
-            <p class="text-center text-neutral-500 font-medium">Connect with real homies based on personalised matchmaking</p>
+            <!-- Card 1 -->
+            <div class="bg-neutral-900 mx-3 lg:mx-0 rounded-xl border border-neutral-800 flex flex-col h-full">
+                <div class="relative aspect-video w-full">
+                    <img alt="illustration" loading="lazy" class="absolute inset-0 w-full h-full object-cover object-center rounded-t-xl" src="images/homemates1.jpg">
+                </div>
+                <div class="flex flex-col gap-2 items-center p-4 sm:p-6 min-h-[120px] justify-center">
+                    <div class="text-xl sm:text-2xl font-bold text-neutral-300 text-center">Discover your compatible homemate</div>
+                    <p class="text-sm sm:text-base text-center text-neutral-500 font-medium">Connect with real homies based on personalised matchmaking</p>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="bg-neutral-900 mx-3 lg:mx-0 rounded-xl border border-neutral-800 flex flex-col h-full">
+                <div class="relative aspect-video w-full">
+                    <img alt="illustration" loading="lazy" class="absolute inset-0 w-full h-full object-cover object-center rounded-t-xl" src="images/card 2.jpg">
+                </div>
+                <div class="flex flex-col gap-2 items-center p-4 sm:p-6 min-h-[120px] justify-center">
+                    <div class="text-xl sm:text-2xl font-bold text-neutral-300 text-center">List available rooms effortlessly</div>
+                    <p class="text-sm sm:text-base text-center text-neutral-500 font-medium">Sleek UX to easily list and manage your rooms</p>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="bg-neutral-900 mx-3 lg:mx-0 rounded-xl border border-neutral-800 flex flex-col h-full">
+                <div class="relative aspect-video w-full">
+                    <img alt="illustration" loading="lazy" class="absolute inset-0 w-full h-full object-cover object-center rounded-t-xl" src="images/card3.jpeg">
+                </div>
+                <div class="flex flex-col gap-2 items-center p-4 sm:p-6 min-h-[120px] justify-center">
+                    <div class="text-xl sm:text-2xl font-bold text-neutral-300 text-center">Find rooms the right way</div>
+                    <p class="text-sm sm:text-base text-center text-neutral-500 font-medium">We help you ready to move in rooms to eliminate the hassle of home setup</p>
+                </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="bg-neutral-900 mx-3 lg:mx-0 rounded-xl border border-neutral-800 flex flex-col h-full">
+                <div class="relative aspect-video w-full">
+                    <img alt="illustration" loading="lazy" class="absolute inset-0 w-full h-full object-cover object-center rounded-t-xl" src="images/card4.jpeg">
+                </div>
+                <div class="flex flex-col gap-2 items-center p-4 sm:p-6 min-h-[120px] justify-center">
+                    <div class="text-xl sm:text-2xl font-bold text-neutral-300 text-center">Privacy is our first priority</div>
+                    <p class="text-sm sm:text-base text-center text-neutral-500 font-medium">All the choices and preferences are encrypted</p>
+                </div>
+            </div>
         </div>
-    </div>
-    <!-- Card 2 -->
-    <div class="bg-neutral-900 mx-3 lg:mx-0 rounded-xl border border-neutral-800 flex flex-col justify-between h-full">
-        <img alt="illustration" loading="lazy" class="w-full h-64 object-cover rounded-t-xl" src="images/keep in touch.jpeg">
-        <div class="flex flex-col gap-3 items-center px-6 pb-6">
-            <div class="text-3xl font-bold text-neutral-300 text-center">List empty rooms of your flat, easily</div>
-            <p class="text-center text-neutral-500 font-medium">Sleek UX to easily list and manage your rooms</p>
-        </div>
-    </div>
-    <!-- Card 3 -->
-    <div class="bg-neutral-900 mx-3 lg:mx-0 rounded-xl border border-neutral-800 flex flex-col justify-between h-full">
-        <img alt="illustration" loading="lazy" class="w-full h-64 object-cover rounded-t-xl" src="images/keep in touch.jpeg">
-        <div class="flex flex-col gap-3 items-center px-6 pb-6">
-            <div class="text-3xl font-bold text-neutral-300 text-center">Find rooms the right way</div>
-            <p class="text-center text-neutral-500 font-medium">We help you ready to move in rooms to eliminate the hassle of home setup</p>
-        </div>
-    </div>
-    <!-- Card 4 -->
-    <div class="bg-neutral-900 mx-3 lg:mx-0 rounded-xl border border-neutral-800 flex flex-col justify-between h-full">
-        <img alt="illustration" loading="lazy" class="w-full h-64 object-cover rounded-t-xl" src="images/keep in touch.jpeg">
-        <div class="flex flex-col gap-3 items-center px-6 pb-6">
-            <div class="text-3xl font-bold text-neutral-300 text-center">Privacy, is our first priority</div>
-            <p class="text-center text-neutral-500 font-medium">All the choices and preferences are encrypted</p>
-        </div>
-    </div>
-</div>
 
-<!-- Tailwind CSS adjustments -->
-<style>
-    @media (min-width: 640px) {
-        /* Small screens: Display two cards per row */
-        #features {
-            grid-template-columns: repeat(2, 1fr); /* Two equal columns */
-        }
-    }
 
-    @media (min-width: 1024px) {
-        /* Large screens: Ensure grid scales well with screen size */
-        #features {
-            max-width: 1200px; /* Increase max width */
-        }
-    }
 
-    /* Ensure all cards have the same height */
-    #features > div {
-        height: 100%; /* Makes all cards stretch to equal height */
-    }
-</style>
+
+
 
 
 
@@ -578,7 +586,7 @@ if (!isValid) {
                     <a target="_blank"
                 class="bg-white rounded-full cursor-pointer  md:flex mx-2" href="https://forms.gle/NVAXLAxQ9PhJWzfH8">
                     <button
-                        class="px-5 py-2 text-black rounded-md w-fit bg-gradient-to-r from-rose-100 to-teal-100 font-semibold">Join Waitlist</button></a></div>
+                        class="px-5 py-2 text-black rounded-md w-fit bg-gradient-to-r from-rose-100 to-teal-100 font-semibold">Join WA Community</button></a></div>
             </div>
         </div>      -->
 
@@ -588,14 +596,14 @@ if (!isValid) {
 <!-- The section below the cards -->
 <div class="flex flex-col md:flex-row justify-between self-center items-center p-5 mx-auto gap-5 rounded-xl border border-neutral-700 bg-neutral-900 " style="max-width: 600px; margin-top: 50px;">
     <div class="space-y-3 mb-8 md:mb-1 text-center md:text-left">
-        <p class="text-white text-md md:text-lg font-bold">Want a Roommate <span
+        <p class="text-white text-md md:text-lg font-bold">Find Your Perfect <span
                 style="background:linear-gradient(45deg, #EEDDBD, #F3B1A5, #EAA3EC, #E8D9E9); background-clip:text; -webkit-background-clip:text; -webkit-text-fill-color:transparent;">
-                who gets you?</span> </p>
-        <div class="text-white max-w-sm mx-auto md:mx-0">Share your details, and we’ll connect you with compatible roommates for your vibe!</div>
+                Homemate Today!</span> </p>
+        <div class="text-white max-w-sm mx-auto md:mx-0">Don’t miss out! Join our exclusive WA Community now and be first in line to find your homemate.</div>
     </div>
     <div class="flex justify-center md:justify-start">
-        <a target="_blank" class="bg-white rounded-full cursor-pointer flex" href="https://forms.gle/NVAXLAxQ9PhJWzfH8">
-            <button class="px-5 py-2 text-black rounded-md bg-gradient-to-r from-rose-100 to-teal-100 font-semibold">Join Waitlist</button>
+        <a target="_blank" class="bg-white rounded-full cursor-pointer flex" href="https://chat.whatsapp.com/LjokqalMWPS8pwjYQQovC4">
+            <button class="px-5 py-2 text-black rounded-md bg-gradient-to-r from-rose-100 to-teal-100 font-semibold">Join WA Community</button>
         </a>
     </div>
 </div>
@@ -942,7 +950,7 @@ if (!isValid) {
         <div style="opacity: 1; transform: none;">
             <div class="pt-36 px-2 py-10">
                 <h2 class=" text-5xl mx-2 lg:text-8xl font-bold text-center text-gray-300">Start your Search now</h2>
-                <p class="text-lg text-center mt-10 lg:w-[390px] px-5 mx-auto text-gray-400">Explore our vision in the pitch deck &amp; hop on the waitlist to find your homie!</p>
+                <p class="text-lg text-center mt-10 lg:w-[390px] px-5 mx-auto text-gray-400">Explore our vision in the pitch deck &amp; hop on the WA Community to find your homie!</p>
             </div>
             <div class="flex justify-center">
                 <div class="flex flex-col md:flex-row gap-8 mx-auto">
@@ -967,7 +975,7 @@ if (!isValid) {
                 style="display: flex; justify-content: center; width: 100%; max-width: 200px; margin: 10px auto;"  href="https://forms.gle/NVAXLAxQ9PhJWzfH8">
                     <button
                         class="px-5 py-2 text-black rounded-md w-fit bg-gradient-to-r from-rose-100 to-teal-100 font-bold"
-                        style="padding: 8px 20px; font-size: 1rem; white-space: nowrap; width: 100%;">Join Waitlist</button></a> -->
+                        style="padding: 8px 20px; font-size: 1rem; white-space: nowrap; width: 100%;">Join WA Community</button></a> -->
                         
                         <!-- <a
                         href="https://forms.gle/NVAXLAxQ9PhJWzfH8" target="_blank" class="download-badge-button w-inline-block">
@@ -1888,7 +1896,7 @@ if (!isValid) {
                 <div class="p-5 flex flex-col items-center md:p-10">
                     <h4 class="text-white text-5xl md:text-6xl xl:text-9xl font-semibold "
                         style="background:linear-gradient(45deg, #EEDDBD, #F3B1A5, #EAA3EC, #E8D9E9);background-clip:text;-webkit-text-fill-color:transparent">
-                        Join the waitlist</h4>
+                        Join the WA Community</h4>
                     <div
                         class="bg-gradient-to-r mt-6 pt-10 gap-y-10 pb-4 md:pb-2 md:gap-y-0  md:py-2 md:px-10 from-[#EEDDBD] to-[#E8D9E9] rounded-xl md:rounded-full placeholder-black outline-none text-xl xl:text-3xl xl:w-[800px] flex flex-col md:flex-row justify-center items-center md:justify-between px-2 w-full">
                         <input type="email" placeholder="Enter Your Email" class="bg-transparent outline-none  "><button
@@ -1942,68 +1950,91 @@ if (!isValid) {
 
         <div class="w-full flex flex-col items-center py-20 px-5 justify-center">
             <div class="w-full max-w-5xl flex flex-col gap-10">
-            
-              <h2 class="text-[min(12vw,144px)]"
-                  style="background:linear-gradient(45deg, #EEDDBD, #F3B1A5, #EAA3EC, #E8D9E9);background-clip:text;-webkit-text-fill-color:transparent;
-                         text-align: left; font-size: 8.5vw; line-height: 1.1;"
-                  id="contact">
-                  Get in Touch
-              </h2>
+
+                <!-- <h2 class="text-[min(12vw,144px)]"
+                    style="background:linear-gradient(45deg, #EEDDBD, #F3B1A5, #EAA3EC, #E8D9E9);background-clip:text;-webkit-text-fill-color:transparent;
+                           text-align: left; font-size: 8.5vw; line-height: 1.1;"
+                    id="contact">
+                    Get in Touch
+                </h2> -->
+                <h2 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl"
+                style="background: linear-gradient(45deg, #EEDDBD, #F3B1A5, #EAA3EC, #E8D9E9);
+                       background-clip: text;
+                       -webkit-text-fill-color: transparent;
+                       text-align: center;
+                       line-height: 1;
+                       font-weight: bold;
+                       white-space: nowrap;
+                       overflow: hidden;
+                       text-overflow: ellipsis;
+                       padding: 10px 0;"
+                id="contact">
+                Get in Touch
+            </h2>
+         
+
             
     <form id="myForm" class="space-y-6" onsubmit="submitForm(event)">
-    
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        
-          <div class="w-full flex gap-6">
-            <span class="w-1/2">
-              <label for="contact-name" class="block text-sm font-medium text-neutral-300 mb-1">First Name</label>
-              <input id="contact-name" name="name" class="mt-1 block w-full rounded-md border border-neutral-700 bg-transparent py-2 px-4 text-white focus:outline-none focus:border-gradient-to-r from-rose-100 to-teal-100" placeholder="Jane" type="text">
-            </span>
+            
+            <!-- First Name and Last Name (Two Columns on Medium and Larger Screens) -->
+            <div class="w-full flex gap-6 md:col-span-2">
+                <span class="w-1/2">
+                    <label for="contact-name" class="block text-sm font-medium text-neutral-300 mb-1">First Name</label>
+                    <input id="contact-name" name="name" class="mt-1 block w-full rounded-md border border-neutral-700 bg-transparent py-2 px-4 text-white focus:outline-none focus:border-gradient-to-r from-rose-100 to-teal-100" placeholder="Jane" type="text" aria-label="First Name" required>
+                </span>
     
-            <span class="w-1/2">
-              <label for="contact-lastName" class="block text-sm font-medium text-neutral-300 mb-1">Last Name</label>
-              <input id="contact-lastName" name="lastName" class="mt-1 block w-full rounded-md border border-neutral-700 bg-transparent py-2 px-4 text-white focus:outline-none focus:border-gradient-to-r from-rose-100 to-teal-100" placeholder="Doe" type="text">
-            </span>
-          </div>
-  
-       
-        <div>
-          <label for="contact-companyName" class="block text-sm font-medium text-neutral-300 mb-1">Company Name (Optional)</label>
-          <input id="contact-companyName" name="companyName" class="mt-1 block w-full rounded-md border border-neutral-700 bg-transparent py-2 px-4 text-white focus:outline-none focus:border-gradient-to-r from-rose-100 to-teal-100" placeholder="Company Name" type="text">
+                <span class="w-1/2">
+                    <label for="contact-lastName" class="block text-sm font-medium text-neutral-300 mb-1">Last Name</label>
+                    <input id="contact-lastName" name="lastName" class="mt-1 block w-full rounded-md border border-neutral-700 bg-transparent py-2 px-4 text-white focus:outline-none focus:border-gradient-to-r from-rose-100 to-teal-100" placeholder="Doe" type="text" aria-label="Last Name" required>
+                </span>
+            </div>
+    
+            <!-- Company Name (Full Width on All Screens) -->
+            <!-- <div class="col-span-1 md:col-span-2">
+                <label for="contact-companyName" class="block text-sm font-medium text-neutral-300 mb-1">Company Name (Optional)</label>
+                <input id="contact-companyName" name="companyName" class="mt-1 block w-full rounded-md border border-neutral-700 bg-transparent py-2 px-4 text-white focus:outline-none focus:border-gradient-to-r from-rose-100 to-teal-100" placeholder="Company Name" type="text" aria-label="Company Name">
+            </div> -->
+    
+            <!-- Email and Phone Number (Two Columns on Medium and Larger Screens) -->
+            <div class="w-full flex gap-6 md:col-span-2">
+                <span class="w-1/2">
+                    <label for="contact-email" class="block text-sm font-medium text-neutral-300 mb-1">Email</label>
+                    <input id="contact-email" name="email" class="mt-1 block w-full rounded-md border border-neutral-700 bg-transparent py-2 px-4 text-white focus:outline-none focus:border-gradient-to-r from-rose-100 to-teal-100" placeholder="your.email@example.com" type="email" aria-label="Work Email" required>
+                </span>
+    
+                <span class="w-1/2">
+                    <label for="contact-phone" class="block text-sm font-medium text-neutral-300 mb-1">Phone Number</label>
+                    <input id="contact-phone" name="phone" class="mt-1 block w-full rounded-md border border-neutral-700 bg-transparent py-2 px-4 text-white focus:outline-none focus:border-gradient-to-r from-rose-100 to-teal-100" placeholder="Phone Number" type="tel" aria-label="Phone Number">
+                </span>
+            </div>
+    
+            <!-- Inquiry Description (Full Width on All Screens) -->
+            <div class="col-span-1 md:col-span-2">
+                <label for="contact-story" class="block text-sm font-medium text-neutral-300 mb-1">Tell Us About Your Inquiry</label>
+                <textarea id="contact-story" name="story" class="mt-1 block w-full rounded-md border border-neutral-700 bg-transparent py-2 px-4 text-white focus:outline-none focus:border-gradient-to-r from-rose-100 to-teal-100" rows="4" placeholder="Description" aria-label="Your Inquiry"></textarea>
+            </div>
+    
+            <!-- Submit Button -->
+            <div class="flex justify-center md:col-span-2">
+                <button class="px-10 py-3 text-black rounded-md w-fit bg-gradient-to-r from-rose-100 to-teal-100 font-bold" style="padding: 8px 20px; font-size: 1rem; transition: background-color 0.3s ease, transform 0.2s ease;">Submit Request</button>
+            </div>
+            
+            <p id="confirmationMessage" class="text-lg font-bold"></p>
+    
+            <!-- Hover and Active Button Styles -->
+            <style>
+                button:hover {
+                    background: linear-gradient(to right, #67E8F9, #FF8A80); /* Change gradient on hover */
+                    transform: scale(1.05); /* Slightly increase size on hover */
+                }
+                button:active {
+                    transform: scale(0.98); /* Slightly reduce size when clicked */
+                }
+            </style>
         </div>
-  
-   
-        <div class="w-full flex gap-6">
-            <span class="w-1/2">
-              <label for="contact-email" class="block text-sm font-medium text-neutral-300 mb-1">Work Email</label>
-              <input id="contact-email" name="email" class="mt-1 block w-full rounded-md border border-neutral-700 bg-transparent py-2 px-4 text-white focus:outline-none focus:border-gradient-to-r from-rose-100 to-teal-100" placeholder="your.email@example.com" type="email">
-            </span>
+    </form>
     
-            <span class="w-1/2">
-              <label for="contact-phone" class="block text-sm font-medium text-neutral-300 mb-1">Phone Number</label>
-              <input id="contact-phone" name="phone" class="mt-1 block w-full rounded-md border border-neutral-700 bg-transparent py-2 px-4 text-white focus:outline-none focus:border-gradient-to-r from-rose-100 to-teal-100" placeholder="Phone Number" type="tel">
-            </span>
-          </div>
-    
-   
-        <div>
-          <label for="contact-story" class="block text-sm font-medium text-neutral-300 mb-1">Tell Us About Your Inquiry</label>
-          <textarea id="contact-story" name="story" class="mt-1 block w-full rounded-md border border-neutral-700 bg-transparent py-2 px-4 text-white focus:outline-none focus:border-gradient-to-r from-rose-100 to-teal-100" rows="4" placeholder="Description"></textarea>
-        </div>
-          
-               
-                <div class="flex justify-start">
-                    <button
-                    class="px-10 py-3 text-black rounded-md w-fit bg-gradient-to-r from-rose-100 to-teal-100 font-bold"
-                    style="padding: 8px 20px; font-size: 1rem;"
-                    >Submit Request</button>
-                </div>
-          
-                
-                <div class="text-left text-neutral-500">
-                  <p>By sending this form, I confirm that I have read and accept the <a href="#" class="text-teal-100 underline">Privacy Policy</a>.</p>
-                </div>
-              </form>
             </div>
           </div>
 
@@ -2051,29 +2082,49 @@ if (!isValid) {
 
     </main>
 
-    <footer>
-        <div id="contact" class="flex flex-wrap md:flex-row gap-5  justify-center">  
-            <div class="absolute left-0 px-4">
-                <img src="/images/logo.jpeg" alt="Logo" style="height: 24px; width: 24px;">
-              </div>
-           <span style="color:#fff" class="flex items-center gap-2 text-xl min-w-[200px] w-auto ">
-              <a href="https://www.instagram.com/homemates.ai">Instagram</a>
-              <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-                  <path fill="none" d="M0 0h24v24H0z"></path>
-                  <path d="M6 6v2h8.59L5 17.59 6.41 19 16 9.41V18h2V6z"></path>
-              </svg>
-          </span>
-          <span style="color:#fff" class="flex items-center gap-2 text-xl min-w-[200px] w-auto">
-              <a href="https://www.linkedin.com/company/homemates-ai/">LinkedIn</a>
-              <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-                  <path fill="none" d="M0 0h24v24H0z"></path>
-                  <path d="M6 6v2h8.59L5 17.59 6.41 19 16 9.41V18h2V6z"></path>
-              </svg>
-          </span> 
-        
-        </div>
 
-      </footer>
+    <footer class="flex items-center justify-between p-12 border-t border-neutral-700  container mx-auto">
+            <div class="ml-10 md:ml-20">
+                <img alt="Logo" class="w-16 h-16" src="/images/logo.jpeg" />
+            </div>
+            <div class="mr-10 md:mr-20 text-center md:text-right">
+                <h2 class="font-bold text-white text-lg">FOLLOW US</h2>
+                <div class="flex justify-center md:justify-end space-x-6 mt-4">
+                    <a class="text-gray-400" href="https://www.instagram.com/homemates.ai">
+                        <svg height="2rem" width="2rem" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#EEDDBD;stop-opacity:1" />
+                                    <stop offset="33%" style="stop-color:#F3B1A5;stop-opacity:1" />
+                                    <stop offset="66%" style="stop-color:#EAA3EC;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#E8D9E9;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <path fill="url(#gradient1)" d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.31.975.975 1.248 2.242 1.31 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.31 3.608-.975.975-2.242 1.248-3.608 1.31-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.31-.975-.975-1.248-2.242-1.31-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.334-2.633 1.31-3.608.975-.975 2.242-1.248 3.608-1.31 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-1.281.058-2.563.334-3.637 1.408-1.074 1.074-1.35 2.356-1.408 3.637-.058 1.28-.072 1.688-.072 4.947s.014 3.667.072 4.947c.058 1.281.334 2.563 1.408 3.637 1.074 1.074 2.356 1.35 3.637 1.408 1.28.058 1.688.072 4.947.072s3.667-.014 4.947-.072c1.281-.058 2.563-.334 3.637-1.408 1.074-1.074 1.35-2.356 1.408-3.637.058-1.28.072-1.688.072-4.947s-.014-3.667-.072-4.947c-.058-1.281-.334-2.563-1.408-3.637-1.074-1.074-2.356-1.35-3.637-1.408-1.28-.058-1.688-.072-4.947-.072zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.324c-2.296 0-4.162-1.866-4.162-4.162s1.866-4.162 4.162-4.162 4.162 1.866 4.162 4.162-1.866 4.162-4.162 4.162zm6.406-11.845c-.796 0-1.441.645-1.441 1.441s.645 1.441 1.441 1.441 1.441-.645 1.441-1.441-.645-1.441-1.441-1.441zm-6.406 1.441c-2.296 0-4.162 1.866-4.162 4.162s1.866 4.162 4.162 4.162 4.162-1.866 4.162-4.162-1.866-4.162-4.162-4.162zm0 10.324c-2.296 0-4.162-1.866-4.162-4.162s1.866-4.162 4.162-4.162 4.162 1.866 4.162 4.162-1.866 4.162-4.162 4.162zm6.406-11.845c-.796 0-1.441.645-1.441 1.441s.645 1.441 1.441 1.441 1.441-.645 1.441-1.441-.645-1.441-1.441-1.441z"></path>
+                        </svg>
+                        
+                    </a>
+                    <a class="text-gray-400" href="https://www.linkedin.com/company/homemates-ai/">
+                        <svg height="2rem" width="2rem" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#EEDDBD;stop-opacity:1" />
+                                    <stop offset="33%" style="stop-color:#F3B1A5;stop-opacity:1" />
+                                    <stop offset="66%" style="stop-color:#EAA3EC;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#E8D9E9;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <path fill="url(#gradient1)" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.268h-3v-5.5c0-1.378-.022-3.152-1.922-3.152-1.922 0-2.218 1.5-2.218 3.052v5.6h-3v-10h2.881v1.367h.041c.401-.761 1.379-1.561 2.841-1.561 3.041 0 3.601 2.001 3.601 4.601v5.593z"></path>
+                        </svg>
+                        
+                    </a>
+                </div>
+            </div>
+        </footer> 
+
+   
+    
+    
 
 
     
